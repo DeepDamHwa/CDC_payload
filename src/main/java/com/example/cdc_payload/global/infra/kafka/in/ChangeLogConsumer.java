@@ -27,8 +27,7 @@ public class ChangeLogConsumer {
 
 
         //rowID로 조회해오기
-        String rowId = event.get("ROW_ID").toString();
-        Interaction interaction = interactionRepository.findByRowId(rowId);
+        Interaction interaction = interactionRepository.findByRowId(event.get("ROW_ID").toString());
 
         //발행하기
         payloadLogProducer.sendNewPayloadLogCaptureMessage(NewPayloadData.builder()
