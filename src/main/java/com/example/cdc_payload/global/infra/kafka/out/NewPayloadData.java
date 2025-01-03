@@ -10,9 +10,4 @@ public class NewPayloadData {
     private String operation;
     private String tableName;
     private Interaction interaction;
-
-//    OPERATION=INSERT,
-//        SEG_OWNER=C##DEEP,
-//        TABLE_NAME=INTERACTION,
-//        SQL_REDO=insert into "C##DEEP"."INTERACTION"("IDX","COMMENT_IDX","EMOJI_IDX","USER_IDX") values ('19835','5','484','3');}
 }
