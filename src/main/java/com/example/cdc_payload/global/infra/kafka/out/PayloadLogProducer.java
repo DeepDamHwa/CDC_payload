@@ -6,9 +6,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class ChangeLogProducer {
+public class PayloadLogProducer {
     private final KafkaTemplate<String,Object> kafkaTemplate;
-    public void sendNewChangeLogCaptureMessage(Object newChangeLogData){
-        kafkaTemplate.send("change_log", newChangeLogData);
+    public void sendNewPayloadLogCaptureMessage(Object newPayloadLogData){
+        kafkaTemplate.send("payload_log", newPayloadLogData);
     }
 }
