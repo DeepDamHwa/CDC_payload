@@ -1,6 +1,5 @@
 package com.example.cdc_payload.global.infra.kafka.out;
 
-import com.example.cdc_payload.global.infra.kafka.in.NewPayloadData;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;

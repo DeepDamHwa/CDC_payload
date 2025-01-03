@@ -2,6 +2,7 @@ package com.example.cdc_payload.global.infra.kafka.in;
 
 import com.example.cdc_payload.domain.interaction.model.Interaction;
 import com.example.cdc_payload.domain.interaction.repository.InteractionRepository;
+import com.example.cdc_payload.global.infra.kafka.out.NewPayloadData;
 import com.example.cdc_payload.global.infra.kafka.out.PayloadLogProducer;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
