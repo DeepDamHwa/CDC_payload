@@ -30,6 +30,9 @@ public class ChangeLogConsumer {
         Interaction interaction = interactionRepository.findByRowId(rowId);
 
         //발행하기
-        payloadLogProducer.sendNewPayloadLogCaptureMessage(interaction);
+        payloadLogProducer.sendNewPayloadLogCaptureMessage(NewPayloadData.builder()
+                .operation(event.get("OPERATION").toString())
+                .tableName(event.get("TABLE_NAME").toString())
+                .interaction(interaction).build());
     }
 }
