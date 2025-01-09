@@ -1,8 +1,8 @@
 package com.example.cdc_payload.domain.interaction.model;
 
-import com.example.cdc_payload.domain.comment.Comment;
+import com.example.cdc_payload.domain.comment.Comments;
 import com.example.cdc_payload.domain.emoji.Emoji;
-import com.example.cdc_payload.domain.user.User;
+import com.example.cdc_payload.domain.user.Users;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -21,15 +21,13 @@ public class Interaction {
     @Id
     private Long idx;
 
-    private String ROWID;
-
     @ManyToOne
     @JoinColumn(name = "comment_idx")
-    private Comment comment;
+    private Comments COMMENTS;
 
     @ManyToOne
     @JoinColumn(name = "user_idx")
-    private User user;
+    private Users USERS;
 
     @ManyToOne
     @JoinColumn(name = "emoji_idx")

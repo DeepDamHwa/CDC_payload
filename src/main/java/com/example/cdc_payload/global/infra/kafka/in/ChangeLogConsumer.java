@@ -20,7 +20,7 @@ public class ChangeLogConsumer {
     public void newCaptureEvent(List<Map<String, Object>> event){
         System.out.println("이벤트 수신...");
 
-        //{ROW_ID=AAATNPAAHAAAALkAEy,
+//       {ROW_ID=AAATNPAAHAAAALkAEy,
 //        OPERATION=INSERT,
 //        SEG_OWNER=C##DEEP,
 //        TABLE_NAME=INTERACTION,
@@ -28,7 +28,10 @@ public class ChangeLogConsumer {
 
         for (Map<String, Object> stringObjectMap : event) {
             try {
-                Interaction interaction = interactionRepository.findByRowId( stringObjectMap.get("ROW_ID").toString());
+                System.out.println(event.get("ROW_ID"));
+                interaction = interactionRepository.findByRowId( event.get("ROW_ID").toString());
+
+//                System.out.println(interaction.getUser().getName());
 
                 payloadLogProducer.sendNewPayloadLogCaptureMessage(NewPayloadData.builder()
                         .operation(stringObjectMap.get("OPERATION").toString())
@@ -38,6 +41,8 @@ public class ChangeLogConsumer {
             } catch (Exception e) {
                 // 예외 처리 및 로그 출력
                 System.err.println("이벤트 처리 중 오류 발생: " + e.getMessage());
+                System.out.println(event.get("ROW_ID"));
+                System.out.println(interaction.getIdx());
                 e.printStackTrace();
             }
         }
