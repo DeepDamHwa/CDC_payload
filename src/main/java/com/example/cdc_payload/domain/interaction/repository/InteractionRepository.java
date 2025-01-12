@@ -1,7 +1,6 @@
 package com.example.cdc_payload.domain.interaction.repository;
 
 import com.example.cdc_payload.domain.interaction.model.Interaction;
-import com.example.cdc_payload.global.infra.kafka.out.NewObject;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
