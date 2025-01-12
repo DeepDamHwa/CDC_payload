@@ -7,10 +7,10 @@ import lombok.Getter;
 @Builder
 @Getter
 public class NewPayloadData {
-    private String operation;
-    private String tableName;
-    private Long interactionIdx;
-    private Long userIdx;
-    private Long commentIdx;
-    private Long emojiIdx;
+//    private String operation;
+//    private String tableName;
+//    private Long interactionIdx;
+//    private Long userIdx;
+//    private Long commentIdx;
+//    private Long emojiIdx;
 }
