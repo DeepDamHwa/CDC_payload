@@ -8,3 +8,19 @@ spring:
     driver-class-name: oracle.jdbc.driver.OracleDriver
     username: c##deep
     password: qwer1234
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        auto_quote_keyword: true
+
+  logging:
+    level:
+      org:
+        hibernate:
+          SQL: DEBUG
+          type:
+            descriptor:
+              sql:
+                BasicBinder: TRACE
