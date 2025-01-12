@@ -18,7 +18,6 @@ public interface InteractionRepository extends JpaRepository<Interaction, Long> 
 //            + "WHERE i.ROWID = :rowid", nativeQuery = true)
 //    Interaction findByRowId(@Param("rowid") String rowid);
 
-    @Query(value =
-            "SELECT * FROM interaction WHERE \"ROWID\" = :rowid", nativeQuery = true)
+    @Query(value = "SELECT * FROM interaction WHERE \"ROWID\" = :rowid", nativeQuery = true)
     Interaction findByRowId(@Param("rowid") String rowid);
 }

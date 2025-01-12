@@ -1,8 +1,10 @@
 package com.example.cdc_payload.domain.interaction.model;
 
-import com.example.cdc_payload.domain.comment.Comments;
-import com.example.cdc_payload.domain.emoji.Emoji;
-import com.example.cdc_payload.domain.user.Users;
+import com.example.cdc_payload.domain.EventEntity;
+import com.example.cdc_payload.domain.comment.model.Comments;
+import com.example.cdc_payload.domain.emoji.model.Emoji;
+import com.example.cdc_payload.domain.user.model.Users;
+import com.example.cdc_payload.global.infra.kafka.out.NewPayloadData;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -17,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Interaction {
+public class Interaction implements EventEntity {
     @Id
     private Long idx;
 
@@ -32,4 +34,15 @@ public class Interaction {
     @ManyToOne
     @JoinColumn(name = "emoji_idx")
     private Emoji emoji;
+
+    @Override
+    public NewPayloadData toDto(String operation) {
+        return NewInteractionPayloadData.builder()
+                .operation(operation)
+                .interactionIdx(idx)
+                .commentIdx(COMMENTS.getIdx())
+                .userIdx(USERS.getIdx())
+                .emojiIdx(emoji.getIdx())
+                .build();
+    }
 }
