@@ -22,4 +22,5 @@ public class NewCommentsPayloadData extends NewPayloadData {
     private Long postIdx;
     private Long userIdx;
     private Long parentIdx;
+    private String content;
 }

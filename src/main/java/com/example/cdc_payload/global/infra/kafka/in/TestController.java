@@ -6,8 +6,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.example.cdc_payload.domain.post.model.Post;
+import com.example.cdc_payload.domain.role.model.Role;
+import com.example.cdc_payload.domain.user.model.Users;
+import com.example.cdc_payload.global.infra.kafka.out.PayloadLogProducer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
     private final ChangeLogConsumer changeLogConsumer;
     private final InteractionRepository interactionRepository;
+    private final PayloadLogProducer producer;
     @PostMapping("/capture")
     public ResponseEntity<String> capture( ){ //@RequestBody NewInteractionCaptureEvent req
 
@@ -39,5 +46,15 @@ public class TestController {
 //        return ResponseEntity.ok(interaction.getUser().getName());
         return ResponseEntity.ok("ff");
     }
+
+//    @GetMapping("/consumer/test")
+//    public ResponseEntity<String> consumerTest(){
+//        Users users = Users.builder()
+//                .idx(1L)
+//                .name("테스트")
+//                .role()
+//                .build();
+//        producer.sendNewPayloadLogCaptureMessage();
+//    }
 
 }

@@ -61,6 +61,7 @@ public class Comments implements EventEntity {
                 .postIdx(post.getIdx())
                 .userIdx(user.getIdx())
                 .parentIdx(parent.getIdx())
+                .content(content)
                 .build();
     }
 
